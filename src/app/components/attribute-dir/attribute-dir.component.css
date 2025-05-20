@@ -1,0 +1,5 @@
+.custom-checkbox-size {
+  transform: scale(2.5); /* Increase the scale as needed */
+  margin-right: 0.5rem; /* Optional: Adjust spacing */
+  margin-top: 3.5rem;
+}

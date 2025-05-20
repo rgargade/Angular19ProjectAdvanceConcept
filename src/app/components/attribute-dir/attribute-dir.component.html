@@ -1,0 +1,86 @@
+<p> Attribute Directive </p>
+<div class="row">
+  <div class="col-3">
+    <div [class]="div1Color" class="pt-4">DIV 1</div>
+  </div>
+
+  <div class="col-3">
+    <div [ngClass]="div2Color" class="pt-4">DIV 2</div>
+  </div>
+
+  <div class="col-3">
+    <div class="pt-4" [class]="isActive ? 'bg-warning' : 'bg-secondary'">
+      DIV 1
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="pt-4" [ngClass]="isActive ? 'bg-success' : 'bg-secondary'">
+      DIV 2
+      <div></div>
+    </div>
+  </div>
+
+  <hr />
+  <div class="row">
+    <div class="col-3" style="margin: 20px">
+      <button
+        style="margin: 20px"
+        class="btn btn-success"
+        (click)="AddDiv1Color('bg-success')"
+      >
+        Green
+      </button>
+      <button class="btn btn-danger" (click)="AddDiv1Color('bg-danger')">
+        Red
+      </button>
+    </div>
+
+    <div class="col-3"></div>
+
+    <div class="col-3">
+      <input
+        type="checkbox"
+        [(ngModel)]="isActive"
+        class="form-check-input custom-checkbox-size"
+      />
+    </div>
+
+    <div class="col-3"></div>
+  </div>
+  <hr />
+
+  <div class="row">
+    <div class="col-3">
+      <div
+        class="pt-4"
+        [ngClass]="{
+          'bg-primary': divClassOnInput == 'primary',
+          'bg-secondary': divClassOnInput == 'secondary',
+          'bg-danger': divClassOnInput == 'danger'
+        }"
+      >
+        DIV 1
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div
+        class="pt-4"
+        [ngClass]="{
+          'bg-primary': divClassOnInput == 'primary',
+          'bg-secondary': divClassOnInput == 'secondary',
+          'bg-danger': divClassOnInput == 'danger'
+        }"
+      >
+        DIV 2
+      </div>
+    </div>
+
+    <div class="col-3">
+      <input type="text" [(ngModel)]="divClassOnInput" />
+    </div>
+
+    <div class="col-3"></div>
+  </div>
+</div>

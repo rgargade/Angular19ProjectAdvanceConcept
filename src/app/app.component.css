@@ -1,0 +1,5 @@
+.nav-hover:hover {
+  background-color: hsl(208, 56%, 50%);
+  color: hsl(321, 80%, 27%);
+  border-radius: 4px;
+}

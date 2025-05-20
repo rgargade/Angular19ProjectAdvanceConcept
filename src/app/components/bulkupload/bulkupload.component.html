@@ -1,0 +1,35 @@
+
+<div class="row mt-4">
+  <div class="col-5">
+    <button class="btn btn-success ms-3" (click)="addNewDept()"> Add New Department</button>
+    <button  class="btn btn-success ms-3"(click)="bulkUpdate()">Bulk Update Dept</button>
+  </div>
+
+</div>
+
+<div class="row mt-4">
+  <div class="col-5">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr No</th>
+          <th>Department Name</th>
+          <th>Department Logo</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        @for(dept of departmentList; track $index){
+          <tr>
+            <td>{{$index+1}}</td>
+            <td> <input type="text" [(ngModel)]="dept.departmentName">  </td>
+            <td><input type="text" [(ngModel)]="dept.departmentLogo"> </td>
+          </tr>
+        }
+        
+      
+      </tbody>
+      </table>
+  </div>
+</div>
+

@@ -27,9 +27,13 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+               "./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -62,7 +66,9 @@
               "buildTarget": "Angular_Project_Practice:build:production"
             },
             "development": {
-              "buildTarget": "Angular_Project_Practice:build:development"
+              "buildTarget": "Angular_Project_Practice:build:development",
+              "port":4209
+              
             }
           },
           "defaultConfiguration": "development"
@@ -92,5 +98,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7e106e55-aeab-4b8b-b9f1-f0ef6971d6d6"
   }
 }

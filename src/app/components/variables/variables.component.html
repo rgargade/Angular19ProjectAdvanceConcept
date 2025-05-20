@@ -1,0 +1,16 @@
+<p> Variable component </p>
+{{firstName}} <br>
+<input type="text" value="{{firstName}}"> <br>
+<input type="text" [value]="rollNo"> <br>
+<input [type]="inputType" name="gender"> Male<br>
+<input type="{{inputType}}" name="gender"> Female <br>
+<div [class]="divClassName"> From Property Binding </div>
+
+<div class="{{divClassName}}"> From Interpolation binding </div>
+
+<div [ngClass]="divClassName"> From NgClass</div>
+<button (click)="showWelcomeMessage()"> Show Message</button> <br> <br>
+<button (click)="showMsg('hello welcome to Code First Technology')"> Click Me </button>
+<input (change)="onCheckChange($event)" type="checkbox">  <br> <br>
+
+<input type="text" [(ngModel)]="firstName" />

@@ -1,0 +1,189 @@
+<!-- <p>User Component</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <th>
+      User ID
+    </th>
+    <th>
+       User Name
+    </th>
+    <th>
+      User Email
+    </th>
+    <th>
+      User Role
+    </th>
+</thead>
+<tbody>
+  @for(user of userList; track user.id){
+    <tr>
+      <td>
+       {{user.userId}}
+      </td>
+      <td>
+        {{user.userName}}
+       </td>
+       <td>
+        {{user.emailId}}
+       </td>
+       <td>
+        {{user.role}}
+       </td>
+  
+    </tr>
+
+  }
+ 
+</tbody>
+</table> -->
+
+<app-btn-group [btnList]="['Basic Info', 'Contact', 'Current Project', 'Old project']"></app-btn-group>
+
+<br />
+<br />
+<p class="underline border">User Component</p>
+
+<br />
+<br />
+@if(showLoader){
+<div class="col-12">
+<div class="loader-wrapper">
+  <div class="loader"></div>
+</div>
+</div>
+} @else{
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        @for(user of userList; track $index){
+        <div class="col-3">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ user.fullName | uppercase }}</h4>
+              <div class="row">
+                <div class="col-6">
+                  <small>
+                    {{ user.emailId }}
+                  </small>
+                </div>
+                <div class="col-6">
+                  {{ user.userName }}
+                </div>
+              </div>
+              <p class="card-text">{{ user.role }}</p>
+  
+              <div class="row">
+                <div class="col-6">
+                  <a class="btn btn-success" (click)="onEdit(user)">Edit</a>
+                </div>
+                <div class="col-6">
+                  <a class="btn btn-danger" (click)="onDeleteUser(user.userId)">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        }
+      </div>
+    </div>
+  
+  
+    <div class="col-4 border border-secondary">
+  
+      <form #form="ngForm">
+  
+        <div class="row ">
+          <div class="col-6">
+            <label for=""> user Name </label>
+            <input type="text" name="userName" #name="ngModel" [(ngModel)]="userObj.userName" class="form-control"
+              required minlength="3" />
+  
+            <div class="text-danger">
+              <!-- {{name.errors | json}} -->
+              @if(name.errors?.['required'] && (name.touched || name.dirty)){
+              <span> This is required </span>
+              } @else if(name.errors?.['minlength']){
+              <span>Minimum 3 characters are required</span>
+              }
+            </div>
+          </div>
+  
+          <div class="col-6">
+            <label for=""> Email</label>
+            <input #email="ngModel" name="emailId" type="text" [(ngModel)]="userObj.emailId" class="form-control"
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required />
+  
+            <div class="text-danger">
+              @if(email.errors?.['pattern']){
+              <span> Please Provide Proper email Id </span>
+              } @else if(email.errors?.['required'] && (email.touched ||
+              email.dirty)) {
+              <span> Email is required </span>
+              }
+            </div>
+          </div>
+          <div class="col-6">
+            <label for=""> Full Name </label>
+            <input type="text" name="fullName" #fname="ngModel" [(ngModel)]="userObj.fullName" class="form-control"
+              required minlength="4" />
+  
+            <div class="text-danger">
+              @if(fname.errors?.['required'] && (fname.touched || fname.dirty)){
+              <span> Full Name is required </span>
+              } @else if(fname.errors?.['minlength'] && (fname.touched ||
+              fname.dirty)){
+              <span> Minimum 4 characters are required</span>
+              }
+            </div>
+          </div>
+          <div class="col-6">
+            <label for=""> Password </label>
+            <input type="text" name="password" #password="ngModel" [(ngModel)]="userObj.password" class="form-control"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" required />
+  
+            <div class="text-danger">
+              @if(password.errors?.['pattern'] && (password.touched ||
+              password.dirty)){
+              <span>
+                At least 1 Uppercase At least 1 Lowercase At least 1 Number At
+                least 1 Symbol, symbol allowed !#$%^&*_=+- Min 8 chars and Max 12
+                chars
+              </span>
+              } @else if(password.errors?.['required'] && (password.touched ||
+              password.dirty)){
+              <span> Password is required </span>
+              }
+            </div>
+          </div>
+        </div>
+        <div class="row pt-4">
+          <!-- {{userObj | json}} -->
+  
+          <div class="col-6">
+            <button class="btn btn-secondary" (click)="ResetUser()">Reset</button>
+          </div>
+          <div class="col-6 text-end">
+            @if(userObj.userId == 0){
+            <button class="btn btn-success" [disabled]="form.invalid" (click)="onSaveUser()">
+              @if(isApiInprogress){
+                <span class="spinner-border spinner-border-sm"></span> 
+              }
+              Save User
+
+            </button>
+            } @else {
+            <button class="btn btn-warning" (click)="onUpdateUser()">
+              Update User
+            </button>
+            }
+          </div>
+        </div>
+  
+  
+      </form>
+  
+    </div>
+  </div>
+}
+

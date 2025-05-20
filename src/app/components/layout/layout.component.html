@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="Structural">StructuralDirectives</a>
+        </li>
+       
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="Variable">Variables</a>
+        </li>
+        
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="ControlFLowStatement">ControlFlowStatements</a>
+        </li>
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="AttributeDirective">AttributeDirective</a>
+        </li>
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="PipeComponent">Pipes</a>
+        </li>
+
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="GetAPI"> ApiIntegration</a>
+        </li>
+
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="User">UsersList</a>
+        </li>
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="Venodr">Vendors</a>
+        </li>
+
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="active" routerLink="bulkupload">Bulk Update</a>
+        </li>
+
+        <li class="nav-item nav-hover">
+          <a class="nav-link" routerLinkActive="dashboard" routerLink="dashboard">Dash Board</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" (click)="onLogOff()" type="button">Logoff</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<router-outlet/>

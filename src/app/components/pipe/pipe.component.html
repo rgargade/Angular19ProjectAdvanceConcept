@@ -1,0 +1,113 @@
+<div class="row">
+  <p class="fw-bold text-danger text-decoration-underline">Basic Pipes</p>
+
+  <div class="col-3">
+    <p class="">
+      Original Value : <span> {{ firstName }} </span>
+    </p>
+  </div>
+
+  <div class="col-3">
+    <p class="text-success">
+      Lowercase Pipe :<span> {{ firstName | lowercase }} </span>
+    </p>
+  </div>
+
+  <div class="col-3">
+    <p class="text-success">
+      Uppercase pipe :<span> {{ firstName | uppercase }} </span>
+    </p>
+  </div>
+
+  <div class="col-3">
+    <p class="text-success">
+      TitleCase pipe :<span> {{ firstName | titlecase }} </span>
+    </p>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <p class="fw-bold text-danger text-decoration-underline">Date Pipe</p>
+
+  <div class="col-3">
+    <p>
+      Original Value : <span> {{ currentDate }} </span>
+    </p>
+  </div>
+
+  <div class="col-3">
+    <p>
+      Date pipe format 'dd/MM/yy' :<span>
+        {{ currentDate | date : "dd/MM/yyy" }}
+      </span>
+    </p>
+  </div>
+
+  <div class="col-3">
+    <p>
+      Date pipe format 'dd/mm/yy/hh/mm/ss' :<span>
+        {{ currentDate | date : "dd-MMM-yyyy" }}
+      </span>
+    </p>
+  </div>
+
+  <div class="col-3">
+    <p>
+      Date pipe format 'dd/mm/yy/hh/mm/ss' :<span>
+        {{ currentDate | date : "dd/MMMM/yyyy/hh/mm/ss" }}
+      </span>
+    </p>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <span class="fw-bold text-danger text-decoration-underline"> Slice Pipe</span>
+
+  <div class="col-3">
+    <span class="fw-bold text-primary">Original Value: </span> {{ cityList }}
+    <p>
+      <span class="fw-bold text-warning">After Slice Pipe </span
+      >{{ cityList | slice : 0 : 3 }}
+    </p>
+  </div>
+
+  <div class="col-3">
+    <span class="fw-bold text-primary">Original Value: </span> {{ cityList }}
+    <p>
+      <span class="fw-bold text-warning">After Slice Pipe </span
+      >{{ cityList | slice : 3 }}
+    </p>
+  </div>
+
+  <div class="col-3">
+    <span class="fw-bold text-primary">Original Value: </span> {{ cityList }}
+    <p>
+      <span class="fw-bold text-warning">After Slice Pipe </span>{{ cityList }}
+    </p>
+  </div>
+
+  <div class="col-3">
+    <span class="fw-bold text-primary">Original Value: </span> {{ cityList }}
+    <p>
+      <span class="fw-bold text-warning">After Slice Pipe </span>{{ cityList }}
+    </p>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <span class="fw-bold text-danger text-decoration-underline"> Json Pipe</span>
+
+  <div class="col-3">
+    <span class="fw-bold text-primary">Original Value: </span> {{ studentObj }}
+    <p>
+      <span class="fw-bold text-warning">After Pipe </span
+      >{{ studentObj | json }}
+    </p>
+  </div>
+</div>

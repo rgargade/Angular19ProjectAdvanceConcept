@@ -1,0 +1,21 @@
+
+<div class="bg-light d-flex justify-content-center align-items-center vh-100">
+
+  <div class="login-card p-4 shadow rounded-4">
+    <h2 class="text-center mb-4">Login</h2>
+    <form>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" [(ngModel)]="loginObj.username" class="form-control" id="username" placeholder="Enter username" />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" [(ngModel)]="loginObj.password" class="form-control" id="password" placeholder="Enter password" />
+      </div>
+      <div class="d-grid">
+        <button type="button" (click)="onLogin()" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+

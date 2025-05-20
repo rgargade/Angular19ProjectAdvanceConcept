@@ -1,0 +1,32 @@
+<p>demo works!</p>
+
+<div class="row">
+  <div class="col-8">
+    <table class="table table-boredered">
+     <thead>
+      <th>Producr ID</th>
+      <th>Producr Tile</th>
+      <th>Product Desc</th>
+      <th>Product price</th>
+      <th>product Category</th>
+     </thead>
+      
+   <tbody>
+
+    @for (item of result; track $index) {
+
+      <tr>{{item.id}}</tr>
+      <tr>{{item.title}}</tr>
+      <tr>{{item.description}}</tr>
+      <tr>{{item.price}}</tr>
+      <tr>{{item.description}}</tr>
+
+    }
+
+
+   
+   </tbody>
+    </table>
+
+  </div>
+</div>
